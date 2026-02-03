@@ -1,8 +1,11 @@
-<!-- BANNER -->
+{{ $image := resources.Get "img/banner.jpg" }}
+
 <div class="banner-wrapper">
     
     <div class="banner">
-        <img src="img/banner.webp" alt="banner" class="banner-img">
+        {{ with $image }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="banner" class="banner-img">
+        {{ end }}
     </div>
 
     <div class="info-bar">
