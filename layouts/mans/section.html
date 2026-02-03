@@ -11,6 +11,8 @@
 				<h1 class="heading">{{ .Store.Get "github_repo_name" }} Manual</h1>
 			</div>
 			<div class="pages">
+				<object data="{{ .Params.links }}" type="text/plain" width="100%" height="300px"></object>
+
 				<iframe src="{{ .Params.links }}" title="description"></iframe>
 			</div>
 		</article>
