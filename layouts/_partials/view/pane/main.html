@@ -16,7 +16,7 @@
 		{{- end -}}
 
 		<!-- landing menu -->
-		{{- if and ( not ( strings.Contains $sector $relper ) ) ( eq ( $relper | len ) 0 ) -}}
+		{{- if and (  eq (  $sector | len ) 0  ) ( eq ( $relper | len ) 0 ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
