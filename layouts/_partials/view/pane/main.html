@@ -1,13 +1,14 @@
 
-{{- $sluger := .Path    }}
-{{- $relper := .Section }}
+{{- $active := ""       -}}
+{{- $sluger := .Path    -}}
+{{- $relper := .Section -}}
 
 
 <nav>
 	<ul class="panel">
 	{{- range .Site.Menus.main -}}
 
-		{{- $active := "" -}}{{- if eq ( eq $sluger .URL ) true -}}
+		{{- if eq ( eq $sluger .URL ) true -}}
 			{{- $active = "active" -}}
 		{{- else if eq $sluger "/" -}}
 			{{- $active = "active" -}}
