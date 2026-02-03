@@ -5,6 +5,7 @@ langs="en-US"
 github_publishe=sulfar0
 github_upstream=yuros-rogerlabor/minera
 github_packager=yuros-rogerlabor/minera
+github_chatroom=""
 
 gitlab_upstream=yuros-rogerlabor/minera
 gitlab_packager=yuros-rogerlabor/minera
