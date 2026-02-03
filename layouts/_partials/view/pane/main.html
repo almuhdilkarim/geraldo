@@ -15,8 +15,9 @@
 			{{- $active = "active" -}}
 		{{- end -}}
 
+
 		<!-- landing menu -->
-		{{- if and ( eq $sluger .URL  ) ( eq ( $relper | len ) 0 ) -}}
+		{{- if and ( eq .Weight 10  ) ( eq ( $relper | len ) 0 ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
