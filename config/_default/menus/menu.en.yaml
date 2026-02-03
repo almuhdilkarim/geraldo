@@ -3,19 +3,19 @@ main:
     pre: book-open
     name: Wiki
     weight: 10
-  - url: /mans
+  - url: /manuals
     pre: book
     name: Manual
     weight: 20
-  - url: /blog
+  - url: /tutorials
     pre: git-pull-request
     name: Tutorial
     weight: 30
-  - url: /docs
+  - url: /docuster
     pre: layout
     name: Documentation
     weight: 40
-  - url: /pack
+  - url: /package
     pre: package
     name: Package
     weight: 50
