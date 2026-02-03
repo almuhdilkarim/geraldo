@@ -8,11 +8,11 @@
 	<ul class="panel">
 	{{- range .Site.Menus.main -}}
 
+		{{ $base := trim .URL "/" }}
+
 		{{- if eq ( eq $sluger .URL ) true -}}
 			{{- $active = "active" -}}
-		{{- else if eq .URL "/" -}}
-			{{- $active = "active" -}}
-		{{- else if strings.Contains .URL $sector -}}
+		{{- else if strings.Contains $base $sector -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
