@@ -1,7 +1,7 @@
 
 {{- $active := ""       -}}
 {{- $sluger := .Path    -}}
-{{- $relper := .Section -}}
+{{- $sector := .Section -}}
 
 
 <nav>
@@ -12,7 +12,7 @@
 			{{- $active = "active" -}}
 		{{- else if eq .URL "/" -}}
 			{{- $active = "active" -}}
-		{{- else if strings.Contains .URL $relper -}}
+		{{- else if strings.Contains .URL $sector -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
