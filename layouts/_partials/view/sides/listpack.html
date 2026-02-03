@@ -1,18 +1,18 @@
 
 <!-- toc initload -->
-{{- partial "inline/view/sides/postlist_docsboxs.html" . -}}
+{{- partial "inline/view/sides/postlist_packboxs.html" . -}}
 
 
 
 <!-- toc mainbox -->
-{{- define "_partials/inline/view/sides/postlist_docsboxs.html" -}}
+{{- define "_partials/inline/view/sides/postlist_packboxs.html" -}}
 
 	<section class="postlist sections">
 		<h2 class="subtitle">
-			<span>{{- partial "icon" "columns" -}}</span> Documentation
+			<span>{{- partial "icon" "columns" -}}</span> Information
 		</h2>
 		<ul class="subsider">
-			{{- partial "inline/view/sides/postlist_docsitem.html" . -}}
+			{{- partial "inline/view/sides/postlist_packitem.html" . -}}
 		</ul>
 	</section>
 
@@ -20,9 +20,9 @@
 
 
 <!-- toc level 1 -->
-{{- define "_partials/inline/view/sides/postlist_docsitem.html" -}}
+{{- define "_partials/inline/view/sides/postlist_packitem.html" -}}
 
-	{{- range where .Site.Pages "Section" "document" -}}
+	{{- range where .Site.Pages "Section" "package" -}}
   		<li class="item open">
 			<span class="icons">{{- partial "icon" "file" -}}</span>
 			<a class="infers" href="{{ .RelPermalink }}">

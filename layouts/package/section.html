@@ -1,6 +1,6 @@
 {{- define "asset_hook" -}}
-	{{- $.Scratch.Set "style_head" (dict "src" "css/head/info.scss" "dest" "css/head/info.css")   -}}
-	{{- $.Scratch.Set "style_pack" (dict "src" "css/pack/info.scss" "dest" "assets/css/info.css") -}}
+	{{- $.Scratch.Set "style_head" (dict "src" "css/head/pack.scss" "dest" "css/head/pack.css")   -}}
+	{{- $.Scratch.Set "style_pack" (dict "src" "css/pack/pack.scss" "dest" "assets/css/pack.css") -}}
 {{- end -}}
 
 
@@ -16,6 +16,7 @@
 		</article>
 		<asside class="sidebar">
 			{{- partial "view/sides/appsvers.html" . -}}
+			{{- partial "view/sides/listpack.html" . -}}
 			{{- partial "view/sides/packdata.html" . -}}
 		</asside>
 	</div>
