@@ -10,12 +10,11 @@
 
 		{{- if eq ( eq $sluger .URL ) true -}}
 			{{- $active = "active" -}}
-		{{- else if eq $sluger "/" -}}
+		{{- else if eq .URL "/" -}}
 			{{- $active = "active" -}}
 		{{- else if strings.Contains .URL $relper -}}
 			{{- $active = "active" -}}
 		{{- end -}}
-
 
 		<li>
 			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}">
