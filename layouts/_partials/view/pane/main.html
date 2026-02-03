@@ -8,11 +8,12 @@
 	{{- range .Site.Menus.main -}}
 
 		{{ $base := trim .URL "/" }}
+		
 		{{- $active := "" -}}{{- if eq ( eq $sluger .URL ) true -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
-		{{- if eq $base $relper -}}
+		{{- if and ( strings.Contains $base $relper ) ( $relper ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
