@@ -1,9 +1,12 @@
-+++
-title = 'Mirza Colorado Bulldog'
-date = 2023-02-15T10:00:00-07:00
-draft = false
-tags = ['red','green']
-+++
+---
+title: 'Example Post 2'
+date: 2023-02-15T10:00:00-07:00
+draft: false
+tags:
+    - red
+    - green
+---
+
 
 Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.
 
