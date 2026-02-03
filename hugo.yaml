@@ -2,7 +2,6 @@ title: karim
 baseURL: https://localhost/
 languageCode: en-US
 
-
 caches:
   images:
     dir: :cacheDir/images
