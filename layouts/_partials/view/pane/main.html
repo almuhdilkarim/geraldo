@@ -2,7 +2,6 @@
 {{- $sluger := .Path -}}
 {{- $relper := trim .Section "/" -}}
 
-
 <nav>
 	<ul class="panel">
 	{{- range .Site.Menus.main -}}
@@ -10,13 +9,14 @@
 		{{- $active := "" -}}
 		{{- $sector := trim .URL "/" -}}
 
+
 		<!-- section menu -->
 		{{- if and ( strings.Contains $sector $relper ) ( $relper ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
 		<!-- landing menu -->
-		{{- if and (  eq (  $sector | len ) 0  ) ( eq ( $relper | len ) 0 ) -}}
+		{{- if and ( eq $sluger .URL  ) ( eq ( $relper | len ) 0 ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
