@@ -1,0 +1,23 @@
+#!/bin/env bash
+
+#!/bin/env bash
+
+
+source "aux/load"
+
+
+if [[ $1 == "-devel" ]];then
+    packer_webdev
+fi
+
+if [[ $1 == "-build" ]];then
+    packer_webpub    
+fi
+
+if [[ $1 == "-apigen" ]];then
+    packer_apigen
+fi
+
+if [[ $1 == "-wikigen" ]];then
+    packer_wikigen
+fi

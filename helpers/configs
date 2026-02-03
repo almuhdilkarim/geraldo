@@ -1,0 +1,13 @@
+title="minera"
+hosts="https://localhost/"
+langs="en-US"
+
+github_publishe=sulfar0
+github_upstream=yuros-rogerlabor/minera
+github_packager=yuros-rogerlabor/minera
+
+gitlab_upstream=yuros-rogerlabor/minera
+gitlab_packager=yuros-rogerlabor/minera
+
+
+source_linuxman=https://man.archlinux.org/man/extra/hyprland/hyprctl.1.en
