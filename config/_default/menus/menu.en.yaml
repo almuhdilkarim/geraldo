@@ -3,19 +3,15 @@ main:
     pre: book-open
     name: Wiki
     weight: 10
-  - url: /manuals
-    pre: book
-    name: Manual
-    weight: 20
-  - url: /tutorials
-    pre: git-pull-request
-    name: Tutorial
-    weight: 30
-  - url: /document
-    pre: layout
-    name: Documentation
-    weight: 40
   - url: /package
     pre: package
     name: Package
-    weight: 50
+    weight: 20
+  - url: /document
+    pre: book
+    name: Documentation
+    weight: 30
+  - url: /tutorials
+    pre: git-pull-request
+    name: Tutorial
+    weight: 40
