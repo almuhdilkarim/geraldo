@@ -1,6 +1,7 @@
 
-{{- $sluger := .Path }}
+{{- $sluger := .Path    }}
 {{- $relper := .Section }}
+
 
 <nav>
 	<ul class="panel">
@@ -10,7 +11,9 @@
 			{{- $active = "active" -}}
 		{{- end -}}
 
-		{{- if strings.Contains .URL $relper -}}
+		{{- if eq $sluger "/" -}}
+			{{- $active = "active" -}}
+		{{- else if strings.Contains .URL $relper -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
