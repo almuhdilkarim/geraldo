@@ -1,0 +1,126 @@
+#!/bin/env bash
+
+
+## APIS
+
+function packers_apisgen_prepar() {
+    mkdir -p ./assets/api/github
+}
+
+
+function packers_apisgen_reposi() {
+    test -f ./assets/api/github/repo.json && rm ./assets/api/github/repo.json
+    curl https://api.github.com/repos/$github_upstream > ./assets/api/github/repo.json
+}
+
+
+function packers_apisgen_releas() {
+    test -f ./assets/api/github/rels.json && rm ./assets/api/github/rels.json
+    curl https://api.github.com/repos/$github_upstream/releases > ./assets/api/github/rels.json
+}
+
+
+function packers_apisgen_contri() {
+    test -f ./assets/api/github/cont.json && rm ./assets/api/github/cont.json
+    curl https://api.github.com/repos/$github_upstream/contributors > ./assets/api/github/cont.json
+}
+
+
+function packers_apisgen_versio() {
+    test -f ./assets/api/github/vers.json && rm ./assets/api/github/vers.json
+    curl https://api.github.com/repos/$github_upstream/releases/latest > ./assets/api/github/vers.json
+}
+
+
+function packers_apisgen_devels() {
+    test -f ./assets/api/github/devs.json && rm ./assets/api/github/devs.json
+    curl https://api.github.com/users/$github_publishe > ./assets/api/github/devs.json
+    echo "cat devs.json"
+    cat ./assets/api/github/devs.json
+
+}
+
+
+
+function packers_apisgen_packer() {
+    test -f ./assets/api/github/pkgs.json && rm ./assets/api/github/pkgs.json
+    curl https://api.github.com/repos/$github_packager/contributors > ./assets/api/github/pkgs.json
+}
+
+
+function packer_apisgen() {
+    packers_apisgen_prepar
+    packers_apisgen_reposi
+    packers_apisgen_releas
+    packers_apisgen_contri
+    packers_apisgen_versio
+    packers_apisgen_devels
+    packers_apisgen_packer
+}
+
+## WIKI
+
+function packers_wikigen_takers() {
+    test -d ./temp && rm -fr ./temp
+    git clone "https://github.com/$github_upstream.wiki.git" ./temp
+}
+
+
+function packers_wikigen_prepar() {
+    mv ./content/docs/_index.md ./content/wiki.md 
+    rm -fr ./content/docs/*
+}
+
+
+function packers_wikigen_deploy() {
+
+    local list=$( ls ./temp/ )
+
+    for article in $list
+    do
+        local title=$(echo "$article" | sed 's/.md//g')
+        echo "---" > ./content/docs/${title,,}.md
+        echo "title : ${title,,}" >> ./content/docs/${title,,}.md
+        echo "---" >> ./content/docs/${title,,}.md
+        cat ./temp/$article >> ./content/docs/${title,,}.md
+    done
+}
+
+
+function packers_wikigen_finish() {
+
+    mv ./content/wiki.md  ./content/docs/_index.md 
+    rm -fr ./temp
+}
+
+
+function packer_wikigen() {
+    packers_wikigen_takers &&
+    packers_wikigen_prepar &&
+    packers_wikigen_deploy &&
+    packers_wikigen_finish 
+}
+
+
+## BASE
+function packer_sitegen_configs() {
+
+    echo "title: $title"        >  hugo.yaml
+    echo "baseURL: $hosts"      >> hugo.yaml
+    echo "languageCode: $langs" >> hugo.yaml
+}
+
+
+function packer_sitegen() {
+    packer_sitegen_configs
+}
+
+
+## INIT
+function packer() {
+    packer_apisgen
+    packer_wikigen
+    packer_sitegen
+}
+
+packer

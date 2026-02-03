@@ -1,0 +1,34 @@
+<!-- toc initload -->
+{{- partial "inline/sides/pageterm_blogboxs.html" . -}}
+
+
+<!-- toc mainbox -->
+{{- define "_partials/inline/sides/pageterm_blogboxs.html" -}}
+
+	<section class="pageterm sections">
+		<h2 class="subtitle">
+			<span>{{- partial "icon" "folder" -}}</span> Categories
+		</h2>
+		<ul class="subsider">
+			{{- partial "inline/sides/pageterm_blogitem.html" . -}}
+		</ul>
+	</section>
+
+{{- end -}}
+
+
+<!-- toc level 1 -->
+{{- define "_partials/inline/sides/pageterm_blogitem.html" }}
+
+	{{- range .Site.Taxonomies.tags.Alphabetical -}} 
+
+		<li class="item open">
+			<span class="icons">{{- partial "icon" "arrow-right-circle" -}}</span>
+			<a class="infers" href="{{ .Page.RelPermalink }}">
+				{{- .Page.Title | htmlUnescape -}}
+			</a>
+        </li>
+
+	{{- end -}}
+
+{{- end -}} 

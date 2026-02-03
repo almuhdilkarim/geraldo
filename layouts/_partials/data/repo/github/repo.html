@@ -1,0 +1,18 @@
+{{- $github_data_repo := "" -}}
+{{- $github_repo_name := "" -}}
+{{- $github_repo_link := "" -}}
+
+<!-- parsing repo data -->
+{{- with resources.Get "api/github/repo.json" -}}
+
+    {{- $github_data_repo = . | transform.Unmarshal -}}
+
+    <!-- repo name -->
+    {{- $github_repo_name = $github_data_repo.name -}}
+    {{- $github_repo_link = $github_data_repo.html_url -}}
+
+
+{{- end -}}
+
+{{- .Store.Set "github_repo_name" $github_repo_name -}}
+{{- .Store.Set "github_repo_link" $github_repo_link -}}

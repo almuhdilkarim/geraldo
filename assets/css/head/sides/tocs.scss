@@ -1,0 +1,49 @@
+
+.tocs {
+
+    .item {
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        margin: .625rem 0 1.1rem 0;
+    }
+
+    .parents {
+        gap: 0.875rem;
+        display: flex;
+        align-items: center;
+        padding: .5rem 0 0.3rem 0;
+
+        &:hover a {
+            color: var(--white5-color);
+        }
+
+        svg{
+            color: var(--prime1-color);
+        }
+    }
+
+
+    .sublist {
+        transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.3s ease;
+
+        .item {
+            padding: 5px 0;
+            margin: 0.625rem 0;
+            margin-left: .7rem;
+            padding-left: 1.4rem;
+            border-left: 2px solid transparent;
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+
+        .item:hover {
+            padding-left: 1.8rem;
+            color: var(--orange-color);
+            border-left-color: var(--orange-color);
+        }
+
+        .item:hover a {
+            color: var(--white5-color);
+        }
+    }
+}

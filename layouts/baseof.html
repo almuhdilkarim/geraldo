@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+    {{- partial "data/repo/load.html" . -}}
+    {{- block "asset_hook" . -}}{{- end -}}
+    {{- partial "view/meta/base.html" . -}}
+
+    <!-- head style -->
+    {{- $styles_head := .Scratch.Get "style_head" | default ( dict "src" "css/head/home.scss" "dest" "css/head/home.css" ) -}}
+    {{- $styles_head := resources.Get $styles_head.src | resources.ExecuteAsTemplate $styles_head.dest . | toCSS | minify -}}
+    <link type="text/css" rel="stylesheet" href="{{ $styles_head.RelPermalink }}" />
+    
+    {{- partial "view/head/aset.html" . -}}
+    {{- partial "view/meta/main.html" . -}}
+    
+</head>
+<body>
+    <header>
+        {{- partial "view/navs/main.html" . -}}
+    </header>
+    <main>
+        <div class="wrap">
+            {{- partial "view/hero/main.html" . -}}
+            {{- partial "view/pane/main.html" . -}}
+            {{- block "main" . }}{{- end -}}
+        </div>
+    </main>
+    <footer>
+        {{- partial "view/boto/main.html" . -}}
+    </footer>
+
+    <!-- pack style -->
+    {{- $styles_pack := .Scratch.Get "style_pack" | default ( dict "src" "css/pack/home.scss" "dest" "assets/css/home.css" ) -}}
+    {{- $styles_pack := resources.Get $styles_pack.src | resources.ExecuteAsTemplate $styles_pack.dest . | toCSS | minify    -}}
+    <link type="text/css" rel="stylesheet" href="{{ $styles_pack.RelPermalink }}" />
+
+    {{- partial "view/pack/aset.html" . -}}
+</body>
+</html>

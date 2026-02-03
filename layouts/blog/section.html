@@ -1,0 +1,46 @@
+{{- define "asset_hook" -}}
+	{{- $.Scratch.Set "style_head" (dict "src" "css/head/blog.scss" "dest" "css/head/blog.css")   -}}
+	{{- $.Scratch.Set "style_pack" (dict "src" "css/pack/blog.scss" "dest" "assets/css/blog.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+
+	<div class="overlay">
+		<div class="content blognavs">
+			<div class="header">
+				<h1 class="heading">{{ .Store.Get "github_repo_name" }} Tutorial</h1>
+			</div>
+			<div class="lister">
+				<div class="divs"></div>
+				{{- partial "inline/blog/blog_list.html" . -}}
+			</div>
+		</div>
+		<asside class="sidebar">
+			{{- partial "view/sides/termblog.html" . -}}
+		</asside>
+	</div>
+
+{{- end -}}
+
+{{- define "_partials/inline/blog/blog_list.html" }}
+
+	{{- range .Pages -}}
+	<article data-url="{{ .Permalink }}">
+		<a class="article" href="{{ .RelPermalink }}">
+			<figure class="thumbnail">
+				<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400" alt="Tutorial">
+			</figure>
+			<div class="divider"></div>
+			<div class="resumebox">
+				<h2 class="title">{{ .LinkTitle }}</h2>
+				<div class="metas">
+					<img src="https://i.pravatar.cc/150?img=8" class="avatar" alt="Author">
+					<span class="author">Null</span>
+					<span class="update">Jun 13, 1</span>
+				</div>
+				<p class="describ">{{ .Content | strings.Truncate 210 }}</p>
+			</div>
+		</a>
+	</article>
+	{{- end -}}
+{{- end -}}

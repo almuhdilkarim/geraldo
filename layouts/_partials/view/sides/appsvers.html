@@ -1,0 +1,24 @@
+<!-- PACKAGE INFO -->
+
+{{- $github_apps_vers := "" -}}
+
+<div class="appvers package-section sections">
+    <h4 class="subtitle">
+        <span>{{- partial "icon" "box" -}}</span> Package
+    </h4>
+    <ul class="subsider">
+        {{- with resources.Get "api/github/rels.json" -}}
+            {{- $github_apps_vers = . | transform.Unmarshal -}}
+            {{- range $github_apps_vers -}}
+
+                <li class="item">
+                    <a href="{{ .html_url  }}" target="_blank" class="action">
+                        <span class="name infers">Release {{ .tag_name }}</span>
+                        <span class="vers infers"> download</span>
+                    </a>
+                </li>
+                
+            {{- end -}}
+        {{- end -}}
+    </ul>
+</div>

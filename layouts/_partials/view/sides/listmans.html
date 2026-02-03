@@ -1,0 +1,35 @@
+
+<!-- pagelist initload -->
+{{- partial "inline/view/sides/listpost_mansboxs.html" . -}}
+
+
+
+<!-- pagelist mainbox -->
+{{- define "_partials/inline/view/sides/listpost_mansboxs.html" -}}
+
+	<section class="postlist sections">
+		<h2 class="subtitle">
+			<span>{{- partial "icon" "columns" -}}</span> Manual
+		</h2>
+		<ul class="subsider">
+			{{- partial "inline/view/sides/listpost_mansitem.html" . -}}
+		</ul>
+	</section>
+
+{{- end -}}
+
+
+<!-- pagelist items -->
+{{- define "_partials/inline/view/sides/listpost_mansitem.html" -}}
+
+	{{- range where .Site.Pages "Section" "mans" -}}
+	
+  		<li class="item open">
+			<span class="icons">{{- partial "icon" "file" -}}</span>
+			<a class="infers" href="{{ .RelPermalink }}">
+				{{- .Title | htmlUnescape -}}
+			</a>
+        </li>
+	{{- end -}}
+
+{{- end -}} 

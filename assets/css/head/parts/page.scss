@@ -1,0 +1,51 @@
+.pages{
+
+    counter-reset: h1;
+
+    h1 {
+        counter-reset: h2;
+        margin-top: 2.25em;
+        margin-bottom: 0.75em;
+        color: var(--white1-color);
+    }
+
+    h2 {
+        counter-reset: h3;
+        margin-bottom: 0.75em;
+        padding-bottom: 0.2em;
+        color: var(--white2-color);
+    }
+
+    h3 {
+        counter-reset: h4;
+        margin-bottom: 0.75em;
+        padding-bottom: 0.2em;
+        color: var(--white3-color);
+    }
+
+    h4 {
+        counter-reset: h5;
+        margin-bottom: 0.75em;
+        padding-bottom: 0.2em;
+        color: var(--white4-color);
+    }
+
+    h5 {
+        counter-reset: h6;
+        margin-bottom: 0.6em;
+        padding-bottom: 0.2em;
+        color: var(--white5-color);
+    }
+
+    h6 {
+        margin-bottom: 0.6em;
+        padding-bottom: 0.1.5em;
+        color: var(--white6-color);
+    }
+
+    p {
+        line-height: 1.59;
+        color: var(--white5-color); 
+        font-size: unquote("clamp(1rem, 1rem + 0.5vw, 1.0073rem)");
+    }
+}

@@ -1,0 +1,53 @@
+footer{
+    display: flex;
+    margin: 2.5rem 0;
+    justify-content: center;
+    
+    .wrap{
+        gap: 1rem;
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .text-small{
+        flex-wrap: nowrap;
+        font-size: .8rem;
+        color: var(--greys1-color);
+    }
+
+    .brand{
+        .logo{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 480px) {
+    footer{
+        position: relative;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    footer{
+        position: relative;
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+    footer{
+        position: relative;
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+    footer{
+        position: relative;
+    }
+}

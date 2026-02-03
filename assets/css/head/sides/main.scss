@@ -1,0 +1,72 @@
+/* ========== SIDEBAR ========== */
+.sidebar {
+    order: 2;
+    color: var(--white6-color);
+    width: clamp(15.625rem, 25vw, 18.75rem);
+
+
+    a {
+        color: var(--white6-color);
+        text-decoration: none;
+    }
+
+    .sections {
+        margin-bottom: clamp(1rem, 3.5vw, 4rem);
+    }
+
+
+    .subtitle {
+        gap: 15px;
+        display: flex;
+        font-weight: 600;
+        align-items: flex-start;
+        color: var(--white4-color);
+        font-size: clamp(14px, 15vw, .95rem);
+        margin-bottom: clamp(0.75rem, 1.1vw, 2rem);
+        border-bottom: 1px solid var(--greys6-color);
+        
+        
+        span{
+            border-right: 1px solid var(--greys6-color);
+            padding: 0rem .7rem .2rem 0rem ;
+        }
+
+
+        svg {
+            width: 1.45rem;
+            height: 1.45rem;
+            color: var(--prime1-color);
+        }
+    }
+
+
+    .subsider {
+
+        .suprem {
+            font-weight: 600;
+            color: var(--white5-color);
+            font-size: clamp(13px,1.3vw,.95rem);
+        }
+
+        .infers {
+            font-weight: 400;
+            text-transform: capitalize;
+            font-size: clamp(13px,1.3vw,.9rem);
+        }
+
+        svg {
+            width: 1.275rem;
+            height: 1.275rem;
+        }
+    }
+
+
+    .avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        object-fit: cover;
+        border-radius: .7rem;
+        border: 2.5px solid var(--greys6-color);
+        transition: border-color 0.25s ease;
+    }
+}

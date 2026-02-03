@@ -1,0 +1,34 @@
+
+.postlist {
+
+    .item {
+        gap: 0.875rem;
+        display: flex;
+        cursor: pointer;
+        margin: 0.625rem 0;
+        padding: .5rem 0 0.3rem 0;
+       
+
+        .infers {
+            transition: color 0.25s ease, padding-left 0.25s ease;
+        }
+
+
+        &:hover .infers {
+            padding-left: .3rem;
+            color: var(--orange-color);
+            border-left-color: var(--orange-color);
+        }
+
+
+        svg{
+            color: var(--white5-color);
+            transition: color 0.25s ease;
+        }
+
+
+        &:hover svg{
+            color: var(--prime1-color);
+        }
+    }
+}

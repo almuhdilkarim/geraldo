@@ -1,0 +1,34 @@
+
+<!-- toc initload -->
+{{- partial "inline/view/sides/postlist_docsboxs.html" . -}}
+
+
+
+<!-- toc mainbox -->
+{{- define "_partials/inline/view/sides/postlist_docsboxs.html" -}}
+
+	<section class="postlist sections">
+		<h2 class="subtitle">
+			<span>{{- partial "icon" "columns" -}}</span> Documentation
+		</h2>
+		<ul class="subsider">
+			{{- partial "inline/view/sides/postlist_docsitem.html" . -}}
+		</ul>
+	</section>
+
+{{- end -}}
+
+
+<!-- toc level 1 -->
+{{- define "_partials/inline/view/sides/postlist_docsitem.html" -}}
+
+	{{- range where .Site.Pages "Section" "docs" -}}
+  		<li class="item open">
+			<span class="icons">{{- partial "icon" "file" -}}</span>
+			<a class="infers" href="{{ .RelPermalink }}">
+				{{- .Title | htmlUnescape -}}
+			</a>
+        </li>
+	{{- end -}}
+
+{{- end -}} 

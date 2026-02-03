@@ -1,0 +1,22 @@
+{{- $github_data_vers := "" -}}
+{{- $github_vers_late := "" -}}
+{{- $github_pack_tars := "" -}}
+{{- $github_pack_zips := "" -}}
+
+<!-- parsing repo data -->
+{{- with resources.Get "api/github/vers.json" -}}
+
+    {{- $github_data_vers = . | transform.Unmarshal -}}
+
+    <!-- repo name -->
+    {{- $github_vers_late = $github_data_vers.tag_name -}}
+    {{- $github_pack_tars = $github_data_vers.tarball_url -}}
+    {{- $github_pack_zips = $github_data_vers.zipball_url -}}
+
+
+{{- end -}}
+
+{{- .Store.Set "github_vers_late" $github_vers_late -}}
+{{- .Store.Set "github_pack_tars" $github_pack_tars -}}
+{{- .Store.Set "github_pack_zips" $github_pack_zips -}}
+

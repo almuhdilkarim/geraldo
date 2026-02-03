@@ -1,0 +1,23 @@
+
+{{- $sluger := .Path }}
+
+<nav>
+	<ul class="panel">
+	{{- range .Site.Menus.main -}}
+
+		{{- $active := "" -}}{{- if eq ( eq $sluger .URL ) true -}}
+			{{- $active = "active" -}}
+		{{- end -}}
+
+		<li>
+			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}">
+				<span class="icon">
+					{{- $icon := .Pre | safe.HTMLAttr -}}{{- partial "icon"  $icon -}}
+				</span>
+				<span>{{ .Name }}</span>
+			</a>
+		</li>
+
+	{{- end -}}
+	</ul>
+</nav>

@@ -1,0 +1,257 @@
+
+
+.banner-wrapper {
+    max-width: 75rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.banner {
+    width: 100%;
+    height: clamp(15.625rem, 35vw, 23.125rem);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #111;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.75);
+}
+
+
+/* ========== INFO BAR ========== */
+.info-bar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1rem, 2vw, 1.5rem);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(0.75rem, 2vw, 1.375rem);
+}
+
+.left-bar {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.938rem, 2vw, 1.563rem);
+    flex: 1;
+    min-width: 12.5rem;
+}
+
+.right-bar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+
+/* ========== BUTTON ========== */
+.download-btn {
+    display: flex;
+    align-items: center;
+    background: #c63d12;   
+    color: #ffffff;        
+    border: none;
+    padding: clamp(0.5rem, 1vw, 0.625rem) clamp(1.125rem, 2vw, 1.625rem);
+    border-radius: 8px;
+    font-size: clamp(13px, 1.2vw, 15px);
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px #c63d12aa;
+}
+
+.download-btn:active {
+    transform: translateY(0px); /* balik saat ditekan */
+}
+
+.download-btn svg{
+    height: 20px;
+    width: 20px;
+    margin-right: .5rem;
+}
+
+/* ========== ICONS ========== */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.938rem, 2.5vw, 1.875rem);
+}
+
+.icon-btn svg {
+    width: clamp(1.375rem, 2vw, 1.375rem);
+    height: clamp(1.375rem, 2vw, 1.375rem);
+    stroke: #F8F8FF;
+    transition: stroke 0.25s ease;
+}
+
+.icon-btn:hover svg {
+    stroke: #ff5f00;
+}
+
+
+/* ========== INFO ========== */
+.info {
+    display: flex;
+    gap: clamp(1.875rem, 5vw, 3.75rem);
+    align-items: center;
+}
+
+.info .label {
+    font-size: clamp(11px, 1vw, 12px);
+    opacity: 0.65;
+    margin-bottom: 0.125rem;
+}
+
+.info p {
+    margin: 0;
+    color: #F8F8FF;
+    font-size: clamp(12px, 1.1vw, 14px);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.avatar {
+    width: clamp(2rem, 3vw, 2.25rem);
+    height: clamp(2rem, 3vw, 2.25rem);
+    border-radius: 10px;
+}
+
+/* ========== FOOTER BANNER ========== */
+.footer-banner {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(16px, 2vw, 24px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(0.75rem, 2vw, 1.375rem);
+}
+
+.left-area {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.938rem, 2vw, 1.563rem);
+    flex: 1;
+    min-width: 12.5rem;
+}
+
+.right-area {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 48rem) {
+
+    .banner-wrapper {
+        width: 95%;
+    }
+
+    .banner-wrapper {
+        width: 95%;
+    }
+
+
+    .info-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.938rem;
+    }
+
+
+    .info-bar {
+        padding: 0.75rem 1rem;
+    }
+
+    .left-bar {
+        flex-wrap: wrap;
+    }
+
+    .right-bar {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .footer-banner {
+         padding: 0.75rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.938rem;
+    }
+
+    .right-area {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .info {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    
+}
+
+
+@media (max-width: 30rem) {
+    
+    .banner {
+        height: 12.5rem;
+    }
+
+    .info {
+        flex-direction: column;
+        gap: 0.938rem;
+        align-items: flex-start;
+    }
+
+
+    .info {
+        flex-direction: column;
+        gap: 0.938rem;
+        align-items: flex-start;
+    }
+
+    .icons {
+        gap: 1.25rem;
+    }
+    
+}

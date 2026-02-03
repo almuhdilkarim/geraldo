@@ -1,0 +1,23 @@
+{{- define "asset_hook" -}}
+	{{- $.Scratch.Set "style_head" (dict "src" "css/head/docs.scss" "dest" "css/head/docs.css")   -}}
+	{{- $.Scratch.Set "style_pack" (dict "src" "css/pack/docs.scss" "dest" "assets/css/docs.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+
+	<div class="overlay">
+		<article class="content docslist">
+			<div class="header">
+				<h1 class="heading">{{ .Store.Get "github_repo_name" }} Documentation</h1>
+			</div>
+			<div class="pages">
+				{{ .Content }}
+			</div>
+		</article>
+		<asside class="sidebar">
+			{{- partial "view/sides/listdocs.html" . -}}
+			{{- partial "view/sides/devsdata.html" . -}}
+		</asside>
+	</div>
+
+{{- end -}}

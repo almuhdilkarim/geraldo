@@ -1,0 +1,80 @@
+
+<!-- toc initload -->
+{{- partial "inline/sides/tocbox.html" . -}}
+
+
+
+<!-- toc mainbox -->
+{{- define "_partials/inline/sides/tocbox.html" }}
+
+	<section class="tocs sections">
+		<h2 class="subtitle">
+			<span>{{ partial "icon" "align-right" }}</span> Contents
+		</h2>
+		<ul class="subsider">
+			{{- with .Fragments -}}{{- partial "inline/sides/level1.html" . -}}{{- end -}}
+		</ul>
+	</section>
+
+{{ end }}
+
+
+<!-- toc level 1 -->
+{{- define "_partials/inline/sides/level1.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li class="item open">
+			<div class="parents">
+				<span class="icons">
+					{{ partial "icon" "plus-circle" }}
+				</span>
+				<a class="suprem" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">
+					{{- .Title | htmlUnescape -}}
+				</a>
+			</div>
+            <ul class="sublist">
+                {{- partial "inline/sides/level2.html" . -}}
+            </ul>
+        </li>
+	{{- end -}}{{- end -}}
+
+{{- end -}} 
+
+
+<!-- toc level 2 -->
+{{- define "_partials/inline/sides/level2.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li class="item">
+			<a class="infers" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">{{- .Title | htmlUnescape -}}</a>
+		</li>
+		{{- partial "inline/sides/level4.html" . -}}
+	{{- end -}}{{- end -}}
+
+{{- end -}}
+
+
+<!-- toc level 3 -->
+{{- define "_partials/inline/sides/level3.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li class="item">
+			<a class="infers" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">{{- .Title | htmlUnescape -}}</a>
+		</li>
+		{{- partial "inline/sides/level4.html" . -}}
+	{{- end -}}{{- end -}}
+
+{{ end }}
+
+
+<!-- toc level 4 -->
+ {{- define "_partials/inline/sides/level4.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li class="item">
+			<a class="infers" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">{{- .Title | htmlUnescape -}}</a>
+		</li>
+		{{- partial "inline/sides/level4.html" . -}}
+	{{- end -}}{{- end -}}
+
+{{- end -}}

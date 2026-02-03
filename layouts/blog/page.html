@@ -1,0 +1,21 @@
+{{- define "asset_hook" -}}
+    {{- $.Scratch.Set "style_head" (dict "src" "css/head/blog.scss" "dest" "css/head/blog.css")   -}}
+	{{- $.Scratch.Set "style_pack" (dict "src" "css/pack/blog.scss" "dest" "assets/css/blog.css") -}}
+{{- end -}}
+
+{{- define "main" -}}
+
+	<div class="overlay">
+		<article class="content infopage">
+			<div class="header">
+				<h1 class="heading">{{ .Title }}</h1>
+			</div>
+			<div class="pages">{{ .Content }}</div>
+		</article>
+		<asside class="sidebar">
+			{{- partial "view/sides/termblog.html" . -}}
+			{{- partial "view/sides/appsvers.html" . -}}
+		</asside>
+	</div>
+
+{{- end -}}

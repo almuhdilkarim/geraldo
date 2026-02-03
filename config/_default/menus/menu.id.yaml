@@ -1,0 +1,21 @@
+main:
+  - url: /
+    pre: book-open
+    name: Wiki
+    weight: 10
+  - url: /mans
+    pre: book
+    name: Manual
+    weight: 20
+  - url: /blog
+    pre: git-pull-request
+    name: Tutorial
+    weight: 30
+  - url: /docs
+    pre: layout
+    name: Documentation
+    weight: 40
+  - url: /pack
+    pre: package
+    name: Package
+    weight: 50

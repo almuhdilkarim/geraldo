@@ -1,0 +1,28 @@
+.deveman {
+
+    .subsider {
+
+        .person {
+            gap: 1rem;
+            display: flex;
+            align-items: center;
+            padding: clamp(.2rem,0.9vw,0.3rem) 0;
+            margin-bottom: .8rem;
+
+
+            &:hover .avatar {
+                border-color: var(--prime1-color);
+            }
+
+
+            .name {
+                font-size: clamp(13px, 1.2vw, .83rem);
+            }
+
+
+            .role {
+                font-size: clamp(11px, 1vw, .75rem);
+            }
+        }
+    } 
+}

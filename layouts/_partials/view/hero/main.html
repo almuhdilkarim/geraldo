@@ -1,0 +1,42 @@
+<!-- BANNER -->
+<div class="banner-wrapper">
+    
+    <div class="banner">
+        <img src="/img/banner.webp" alt="banner" class="banner-img">
+    </div>
+
+    <div class="info-bar">
+        <div class="left-bar">
+            <a href="{{ .Store.Get "github_pack_tars" }}" target="_blank" class="download-btn" aria-label="Download Package">
+                {{ partial "icon" "download" }} Download
+            </a>
+            <div class="icons">
+                {{- with .Store.Get "github_repo_link" -}}
+                <a href="{{ . }}" target="_blank" class="icon-btn" aria-label="GitHub">
+                    {{ partial "icon" "github" }}
+                </a>
+                {{- end -}}
+                {{- with .Store.Get "gitlab_repo_link" -}}
+                <a href="https://gitlab.com" class="icon-btn" aria-label="GitLab">
+                    {{ partial "icon" "gitlab" }}
+                </a>
+                {{- end -}}
+            </div>
+        </div>
+        <div class="right-bar">
+            <div class="info">
+                <div class="author">
+                    <img src="{{ .Store.Get "github_devs_avat" }}" class="avatar" alt="author" />
+                    <div>
+                        <p class="label">Developer</p>
+                        <p>{{ .Store.Get "github_devs_name" }}</p>
+                    </div>
+                </div>
+                <div class="version">
+                    <p class="label">Latest Version</p>
+                    <p>{{ .Store.Get "github_vers_late" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<!-- parsing user data data -->
+{{- $github_data_devs := "" -}}
+{{- $github_devs_name := "" -}}
+{{- $github_devs_avat := "" -}}
+
+{{- with resources.Get "api/github/devs.json" -}}
+    {{- $github_data_devs = . | transform.Unmarshal -}}
+
+    <!-- repo name -->
+    {{- $github_devs_name = $github_data_devs.name -}}
+    {{- $github_devs_avat = $github_data_devs.avatar_url -}}
+
+{{- end -}}
+
+{{- .Store.Set "github_devs_name" $github_devs_name -}}
+{{- .Store.Set "github_devs_avat" $github_devs_avat -}}

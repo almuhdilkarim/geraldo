@@ -1,0 +1,20 @@
+{{- $github_data_cont := "" -}}
+
+<!-- CONTRIBUTORS  -->
+<section class="deveman sections">
+    <h2 class="subtitle">
+        <span>{{- partial "icon" "users" -}}</span>Developer
+    </h2>
+     <div class="subsider">
+        {{- with resources.Get "api/github/devs.json" -}}
+            {{- $github_data_cont = . | transform.Unmarshal -}}
+            <div class="person">
+                <img src="{{ $github_data_cont.avatar_url }}" class="avatar" alt="Maintainer">
+                <div class="content">
+                    <div class="name suprem">@{{ $github_data_cont.login }}</div>
+                    <a href="{{ $github_data_cont.html_url }}" target="_blank" class="role infers">Follow</a>
+                </div>
+            </div>
+        {{ end }}
+    </div>
+</section>

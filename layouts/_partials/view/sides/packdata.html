@@ -1,0 +1,22 @@
+{{- $github_data_cont := "" -}}
+
+<!-- PACKAGE MAINTENERS  -->
+<div class="packers sections">
+    <h2 class="subtitle">
+        <span>{{- partial "icon" "users" -}}</span> Maintainers
+    </h2>
+     <div class="subsider">
+        {{- with resources.Get "api/github/pkgs.json" -}}
+            {{- $github_data_cont = . | transform.Unmarshal -}}
+            {{- range $github_data_cont -}}
+            <div class="person">
+                <img src="{{ .avatar_url }}" class="avatar" alt="Maintainer">
+                <div class="content">
+                    <div class="name suprem">@{{ .login }}</div>
+                    <a href="{{ .html_url }}" target="_blank" class="role infers">Follow</a>
+                </div>
+            </div>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>

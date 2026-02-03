@@ -1,0 +1,39 @@
+.appvers{
+
+    .subsider{
+
+        .item {
+            list-style: none;
+            padding: clamp(0.375rem, 0.8vw, 0.75rem) 0;
+        }
+
+
+        .action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .name {
+            color: var(--white6-color);
+            transition: color 0.25s ease;
+        }
+
+
+        .action:hover .name {
+            color: var(--white1-color);
+        }
+
+
+        .vers {
+            color: var(--prime1-color);
+            transition: padding-right 0.25s ease;
+        }
+
+
+        .action:hover .vers {
+            padding-right: .2rem;
+        }
+    }
+}
