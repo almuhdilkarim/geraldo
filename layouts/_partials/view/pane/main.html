@@ -1,5 +1,6 @@
 
 {{- $sluger := .Path    }}
+
 {{- $relper := trim .Section "/" }}
 
 
@@ -7,9 +8,10 @@
 	<ul class="panel">
 	{{- range .Site.Menus.main -}}
 
+		{{- $active := "" -}}
 		{{ $base := trim .URL "/" }}
-		
-		{{- $active := "" -}}{{- if eq ( eq $sluger .URL ) true -}}
+
+		{{- if eq ( eq $sluger .URL ) true -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
@@ -19,7 +21,7 @@
 
 
 		<li>
-			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}">
+			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}"  data-base="{{ $base }}"  data-relper="{{ $relper }}">
 				<span class="icon">
 					{{- $icon := .Pre | safe.HTMLAttr -}}{{- partial "icon"  $icon -}}
 				</span>
