@@ -1,7 +1,6 @@
 
-{{- $sluger := .Path    }}
-
-{{- $relper := trim .Section "/" }}
+{{- $sluger := .Path -}}
+{{- $relper := trim .Section "/" -}}
 
 
 <nav>
@@ -9,19 +8,20 @@
 	{{- range .Site.Menus.main -}}
 
 		{{- $active := "" -}}
-		{{ $base := trim .URL "/" }}
+		{{- $sector := trim .URL "/" -}}
 
-		{{- if eq ( eq $sluger .URL ) true -}}
+		<!-- section menu -->
+		{{- if and ( strings.Contains $sector $relper ) ( $relper ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
-		{{- if and ( strings.Contains $base $relper ) ( $relper ) -}}
+		<!-- landing menu -->
+		{{- if and ( not ( strings.Contains $sector $relper ) ) ( eq ( $relper | len ) 0 ) -}}
 			{{- $active = "active" -}}
 		{{- end -}}
-
 
 		<li>
-			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}"  data-base="{{ $base }}"  data-relper="{{ $relper }}">
+			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}"  data-base="{{ $sector }}"  data-relper="{{ $relper }}">
 				<span class="icon">
 					{{- $icon := .Pre | safe.HTMLAttr -}}{{- partial "icon"  $icon -}}
 				</span>
