@@ -14,5 +14,11 @@
 
 {{- end -}}
 
-{{- .Store.Set "github_repo_name" $github_repo_name -}}
+<!--  overide title -->
+{{ if $github_repo_name }}
+    {{- .Store.Set "packers_title" $github_repo_name -}}
+{{ end }}
+
+
+<!--  overide repos -->
 {{- .Store.Set "github_repo_link" $github_repo_link -}}
