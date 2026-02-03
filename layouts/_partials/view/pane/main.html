@@ -1,6 +1,6 @@
 
 {{- $sluger := .Path }}
-{{- $relper := .RelPermalink }}
+{{- $relper := .Section }}
 
 <nav>
 	<ul class="panel">
@@ -10,13 +10,13 @@
 			{{- $active = "active" -}}
 		{{- end -}}
 
-		{{- if eq ( eq $relper .URL ) true -}}
+		{{- if strings.Contains .URL $relper -}}
 			{{- $active = "active" -}}
 		{{- end -}}
 
 
 		<li>
-			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}" data-perm="{{ $relper }}">
+			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}">
 				<span class="icon">
 					{{- $icon := .Pre | safe.HTMLAttr -}}{{- partial "icon"  $icon -}}
 				</span>
