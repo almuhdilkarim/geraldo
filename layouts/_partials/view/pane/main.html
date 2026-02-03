@@ -1,7 +1,6 @@
 
-{{- $active := ""       -}}
-{{- $sluger := .Path    -}}
-{{- $sector := .Section -}}
+{{- $sluger := .Path    }}
+{{- $relper := trim .Section "/" }}
 
 
 <nav>
@@ -9,12 +8,14 @@
 	{{- range .Site.Menus.main -}}
 
 		{{ $base := trim .URL "/" }}
-
-		{{- if eq ( eq $sluger .URL ) true -}}
-			{{- $active = "active" -}}
-		{{- else if strings.Contains $base $sector -}}
+		{{- $active := "" -}}{{- if eq ( eq $sluger .URL ) true -}}
 			{{- $active = "active" -}}
 		{{- end -}}
+
+		{{- if eq $base $relper -}}
+			{{- $active = "active" -}}
+		{{- end -}}
+
 
 		<li>
 			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}" data-slug="{{ $sluger }}">
