@@ -41,7 +41,6 @@ function packers_apisgen_devels() {
 }
 
 
-
 function packers_apisgen_packer() {
     test -f ./assets/api/github/pkgs.json && rm ./assets/api/github/pkgs.json
     curl https://api.github.com/repos/$github_packager/contributors > ./assets/api/github/pkgs.json
@@ -75,14 +74,25 @@ function packers_wikigen_prepar() {
 function packers_wikigen_deploy() {
 
     local list=$( ls ./temp/ )
+    local sums=1
 
     for article in $list
     do
-        local title=$(echo "$article" | sed 's/.md//g')
-        echo "---" > ./content/docs/${title,,}.md
-        echo "title : ${title,,}" >> ./content/docs/${title,,}.md
-        echo "---" >> ./content/docs/${title,,}.md
-        cat ./temp/$article >> ./content/docs/${title,,}.md
+
+        if [[ counter == 1 ]]; then
+            local file="./content/docs/_index.md"
+        else
+            local title=$(echo "$article" | sed 's/.md//g')
+            local file="./content/docs/${title,,}.md"
+        if
+        
+        echo "---" > "$file"
+        echo "title : ${title,,}" >> "$file"
+        echo "---" >> "$file"
+        cat ./temp/$article >> "$file"
+
+        ((counter++))
+
     done
 }
 
