@@ -9,12 +9,6 @@
 			{{- $active = "active" -}}
 		{{- end -}}
 
-		
-		{{ if $files }}
-		<p>Blog directory exists and contains files.</p>
-		{{ end }}
-
-
 		<li>
 			<a href="{{ .URL }}" class="item {{ $active | safe.HTMLAttr }}">
 				<span class="icon">
