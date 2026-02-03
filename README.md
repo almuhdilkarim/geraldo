@@ -1,4 +1,4 @@
-# packer geraldo
+# Packer Geraldo
 ## Linux package release and publication automation
 
 geraldo packers template module
