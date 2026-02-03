@@ -11,7 +11,7 @@ main:
     pre: git-pull-request
     name: Tutorial
     weight: 30
-  - url: /docuster
+  - url: /document
     pre: layout
     name: Documentation
     weight: 40
