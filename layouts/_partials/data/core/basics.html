@@ -1,15 +1,18 @@
 <!-- title setup -->
-{{- .Store.Set "packers_title" .Title -}}
+{{- $title := "Packers" -}}
+{{- with site.GetPage "/" -}}{{- $title := .Title -}}{{- end -}}
+{{- .Store.Set "packers_title"  $title -}}
 
 
 <!-- thumb image -->
-{{ $thumbs := resources.Get "img/banner.png"  }}
+{{- $thumbs := resources.Get "img/banner.png" -}}
 
-{{ $page := site.GetPage "/" }}{{ with $page.Resources.Get .Params.thumbs }}
-    {{- $thumbs =  . -}}
-{{ end }}
+{{- $page := site.GetPage "/" }}{{ with $page.Resources.Get .Params.thumbs -}}
+    {{- $thumbs = . -}}
+{{- end -}}
 
 {{- .Store.Set "packers_thumb" $thumbs -}}
+
 
 <!-- developer name -->
 {{- .Store.Set "packers_devel" "Anonym" -}}
@@ -22,8 +25,3 @@
 
 <!-- versione name -->
 {{- .Store.Set "packers_versi" "v1.0.0" -}}
-
-
-
-
-
