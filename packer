@@ -1,16 +1,14 @@
 #!/bin/env bash
 
-#!/bin/env bash
 
-
-source "aux/load"
+source "helpers/sitegen"
 
 
 if [[ $1 == "-devel" ]];then
     packer_webdev
 fi
 
-if [[ $1 == "-build" ]];then
+if [[ $1 == "-builds" ]];then
     packer_webpub    
 fi
 
