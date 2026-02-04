@@ -1,0 +1,22 @@
+<!-- APP CONTRIBUTOR  -->
+
+{{- with resources.Get "api/github/devs.json" -}}
+
+    {{- $data := . | transform.Unmarshal -}}
+
+    <section class="deveman sections">
+        <h2 class="subtitle">
+            <span>{{- partial "icon" "users" -}}</span>Contributor
+        </h2>
+        <div class="subsider">
+            <div class="person">
+                <img src="{{ $data.avatar_url }}" class="avatar" alt="Maintainer">
+                <div class="content">
+                    <div class="name suprem">@{{ $data.login }}</div>
+                    <a href="{{ $data.html_url }}" target="_blank" class="role infers">Follow</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{{- end -}}

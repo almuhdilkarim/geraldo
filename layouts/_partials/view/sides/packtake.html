@@ -1,0 +1,25 @@
+<!-- PACKAGE TAKE -->
+
+{{- with resources.Get "api/github/rels.json" -}}
+
+    {{- $github_apps_vers := . | transform.Unmarshal -}}
+
+    <div class="appvers package-section sections">
+        <h4 class="subtitle">
+            <span>{{- partial "icon" "download-cloud" -}}</span> Downloads
+        </h4>
+        <ul class="subsider">
+        {{- range $github_apps_vers -}}
+
+            <li class="item">
+                <a href="{{ .html_url  }}" target="_blank" class="action">
+                    <span class="name infers">Release {{ .tag_name }}</span>
+                    <span class="vers infers"> download</span>
+                </a>
+            </li>
+            
+        {{- end -}}
+        </ul>
+    </div>
+
+{{- end -}}
