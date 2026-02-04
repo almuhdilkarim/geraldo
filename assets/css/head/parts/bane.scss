@@ -30,7 +30,7 @@
         -webkit-backdrop-filter: blur(4px);
         border-bottom-left-radius: 18px;
         border-bottom-right-radius: 18px;
-        padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1rem, 2vw, 1.5rem);
+        padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1rem, 2.25vw, 3rem);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
         display: flex;
         align-items: center;
@@ -48,6 +48,7 @@
             .title {
                 margin-top: 0;
                 padding: clamp(0.2rem, 1vw, 0.325rem) clamp(1.125rem, 2vw, 1.625rem);
+                padding-left: 0;
             }
         }
 
