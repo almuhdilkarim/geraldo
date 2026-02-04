@@ -1,0 +1,3 @@
+{{- with .Store.Get "packers_thumb" -}}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="banner" class="images">
+    {{- end -}}

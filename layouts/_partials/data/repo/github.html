@@ -1,0 +1,70 @@
+{{- $github_data_repo := "" -}}
+{{- $github_repo_name := "" -}}
+{{- $github_repo_link := "" -}}
+
+<!-- parsing repo data -->
+{{- with resources.Get "api/github/repo.json" -}}
+
+    {{- $github_data_repo = . | transform.Unmarshal -}}
+
+    <!-- repo name -->
+    {{- $github_repo_name = $github_data_repo.name -}}
+    {{- $github_repo_link = $github_data_repo.html_url -}}
+
+
+{{- end -}}
+
+<!--  overide title -->
+{{ if $github_repo_name }}
+    {{- .Store.Set "packers_title" $github_repo_name -}}
+{{ end }}
+
+
+<!--  overide repos -->
+{{- .Store.Set "github_repo_link" $github_repo_link -}}
+
+
+
+
+<!-- parsing user data data -->
+{{- $github_data_devs := "" -}}
+{{- $github_devs_name := "" -}}
+{{- $github_devs_avat := "" -}}
+
+{{- with resources.Get "api/github/devs.json" -}}
+    {{- $github_data_devs = . | transform.Unmarshal -}}
+
+    <!-- repo name -->
+    {{- $github_devs_name = $github_data_devs.name -}}
+    {{- $github_devs_avat = $github_data_devs.avatar_url -}}
+
+{{- end -}}
+
+{{- .Store.Set "github_devs_name" $github_devs_name -}}
+{{- .Store.Set "github_devs_avat" $github_devs_avat -}}
+
+
+
+
+{{- $github_data_vers := "" -}}
+{{- $github_vers_late := "" -}}
+{{- $github_pack_tars := "" -}}
+{{- $github_pack_zips := "" -}}
+
+<!-- parsing repo data -->
+{{- with resources.Get "api/github/vers.json" -}}
+
+    {{- $github_data_vers = . | transform.Unmarshal -}}
+
+    <!-- repo name -->
+    {{- $github_vers_late = $github_data_vers.tag_name -}}
+    {{- $github_pack_tars = $github_data_vers.tarball_url -}}
+    {{- $github_pack_zips = $github_data_vers.zipball_url -}}
+
+
+{{- end -}}
+
+{{- .Store.Set "github_vers_late" $github_vers_late -}}
+{{- .Store.Set "github_pack_tars" $github_pack_tars -}}
+{{- .Store.Set "github_pack_zips" $github_pack_zips -}}
+

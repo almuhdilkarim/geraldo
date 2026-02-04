@@ -1,0 +1,28 @@
+<!-- title setup -->
+{{- .Store.Set "packers_title" .Title -}}
+
+
+<!-- thumb image -->
+{{ $thumbs := resources.Get "img/banner.png"  }}
+
+{{ $page := site.GetPage "/" }}{{ with $page.Resources.Get .Params.thumbs }}
+    {{- $thumbs =  . -}}
+{{ end }}
+
+{{- .Store.Set "packers_thumb" $thumbs -}}
+
+<!-- developer name -->
+{{- .Store.Set "packers_devel" "Anonymous" -}}
+
+
+<!-- developer avat -->
+{{- .Store.Set "packers_avata" "v1.0.0" -}}
+
+
+<!-- versione name -->
+{{- .Store.Set "packers_versi" "v1.0.0" -}}
+
+
+
+
+
