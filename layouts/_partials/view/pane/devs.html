@@ -1,13 +1,17 @@
 <div class="devels">
     <div class="author">
-        <img src="{{ .Store.Get "github_devs_avat" }}" class="avatar" alt="author" />
+    {{- with .Store.Get "packers_avata" -}}
+        <img src="{{ .RelPermalink }}" class="avatar" alt="author" />
+    {{- end -}}
+    {{- with .Store.Get "packers_devel" -}}
         <div>
-            <p class="label">Developer</p>
-            <p>{{ .Store.Get "github_devs_name" }}</p>
+            <p class="label">Developer</p><p>{{ . }}</p>
         </div>
+    {{ end }}
     </div>
     <div class="version">
-        <p class="label">Latest Version</p>
-        <p>{{ .Store.Get "github_vers_late" }}</p>
+    {{- with .Store.Get "packers_versi" -}}
+        <p class="label">Latest Version</p><p>{{ . }}</p>
+    {{- end -}}
     </div>
 </div>

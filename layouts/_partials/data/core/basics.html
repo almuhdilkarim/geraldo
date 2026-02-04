@@ -12,11 +12,12 @@
 {{- .Store.Set "packers_thumb" $thumbs -}}
 
 <!-- developer name -->
-{{- .Store.Set "packers_devel" "Anonymous" -}}
+{{- .Store.Set "packers_devel" "Anonym" -}}
 
 
 <!-- developer avat -->
-{{- .Store.Set "packers_avata" "v1.0.0" -}}
+{{- $avatar := resources.Get "img/avatar.jpg" -}}
+{{- .Store.Set "packers_avata" $avatar -}}
 
 
 <!-- versione name -->
