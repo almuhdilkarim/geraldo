@@ -1,5 +1,5 @@
 <!-- title setup -->
-{{- $title := "Packers" -}}
+{{- $title := "Geraldo" -}}
 {{- with site.GetPage "/" -}}{{- $title := .Title -}}{{- end -}}
 {{- .Store.Set "packers_title"  $title -}}
 
@@ -20,8 +20,12 @@
 
 <!-- developer avat -->
 {{- $avatar := resources.Get "img/avatar.jpg" -}}
-{{- .Store.Set "packers_avata" $avatar -}}
+{{- .Store.Set "packers_avatar" $avatar -}}
 
 
 <!-- versione name -->
-{{- .Store.Set "packers_versi" "v1.0.0" -}}
+{{- .Store.Set "packers_version" "v1.0.0" -}}
+
+
+<!-- github reposi -->
+{{- .Store.Set "packers_ghrepost" "https://github.com/almuhdilkarim/geraldo" -}}

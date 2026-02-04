@@ -1,6 +1,6 @@
 <div class="devels">
     <div class="author">
-    {{- with .Store.Get "packers_avata" -}}
+    {{- with .Store.Get "packers_avatar" -}}
         <img src="{{ .RelPermalink }}" class="avatar" alt="author" />
     {{- end -}}
     {{- with .Store.Get "packers_devel" -}}
@@ -10,7 +10,7 @@
     {{ end }}
     </div>
     <div class="version">
-    {{- with .Store.Get "packers_versi" -}}
+    {{- with .Store.Get "packers_version" -}}
         <p class="label">Latest Version</p><p>{{ . }}</p>
     {{- end -}}
     </div>

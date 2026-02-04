@@ -7,21 +7,25 @@
 
     {{- $github_data_repo = . | transform.Unmarshal -}}
 
-    <!-- repo name -->
+    <!-- overide title -->
     {{- $github_repo_name = $github_data_repo.name -}}
-    {{- $github_repo_link = $github_data_repo.html_url -}}
 
+    <!-- overide repos -->
+    {{- $github_repo_link = $github_data_repo.html_url -}}
 
 {{- end -}}
 
 <!--  overide title -->
-{{ if $github_repo_name }}
+{{- if $github_repo_name -}}
     {{- .Store.Set "packers_title" $github_repo_name -}}
-{{ end }}
+{{- end -}}
 
 
 <!--  overide repos -->
-{{- .Store.Set "github_repo_link" $github_repo_link -}}
+{{- if $github_repo_link -}}
+    {{- .Store.Set "packers_ghrepost" $github_repo_link -}}
+{{- end -}}
+
 
 
 
@@ -34,15 +38,23 @@
 {{- with resources.Get "api/github/devs.json" -}}
     {{- $github_data_devs = . | transform.Unmarshal -}}
 
-    <!-- repo name -->
+    <!-- developer name -->
     {{- $github_devs_name = $github_data_devs.name -}}
+
+    <!-- developer avatar -->
     {{- $github_devs_avat = $github_data_devs.avatar_url -}}
 
 {{- end -}}
 
-{{- .Store.Set "github_devs_name" $github_devs_name -}}
-{{- .Store.Set "github_devs_avat" $github_devs_avat -}}
+<!-- developer name -->
+{{- if $github_devs_name -}}
+    {{- .Store.Set "packers_devel" $github_devs_name -}}
+{{- end -}}
 
+<!-- developer avatar -->
+{{- if $github_devs_avat -}}
+    {{- .Store.Set "packers_avatar" $github_devs_avat -}}
+{{- end -}}
 
 
 
@@ -56,15 +68,31 @@
 
     {{- $github_data_vers = . | transform.Unmarshal -}}
 
-    <!-- repo name -->
+    <!-- latest version -->
     {{- $github_vers_late = $github_data_vers.tag_name -}}
-    {{- $github_pack_tars = $github_data_vers.tarball_url -}}
-    {{- $github_pack_zips = $github_data_vers.zipball_url -}}
 
+    <!-- download targz -->
+    {{- $github_pack_tars = $github_data_vers.tarball_url -}}
+
+    <!-- download zip -->
+    {{- $github_pack_zips = $github_data_vers.zipball_url -}}
 
 {{- end -}}
 
-{{- .Store.Set "github_vers_late" $github_vers_late -}}
-{{- .Store.Set "github_pack_tars" $github_pack_tars -}}
-{{- .Store.Set "github_pack_zips" $github_pack_zips -}}
 
+<!-- latest version -->
+{{- if $github_vers_late -}}
+    {{- .Store.Set "packers_version" $github_vers_late -}}
+{{- end -}}
+
+
+<!-- download tar -->
+{{- if $github_pack_tars -}}
+    {{- .Store.Set "packers_packtar" $github_pack_tars -}}
+{{- end -}}
+
+
+<!-- download zip -->
+{{- if $github_pack_zips -}}
+    {{- .Store.Set "packers_packzip" $github_pack_zips -}}
+{{- end -}}

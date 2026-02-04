@@ -1,13 +1,13 @@
 <div class="packbar">
-    {{- with .Store.Get "github_pack_tars" -}}
+    {{- with .Store.Get "packers_packtar" -}}
         <a href="{{ . }}" target="_blank" class="download" aria-label="Download Package">{{ partial "icon" "download" }} Download</a>
     {{- end -}}
     
-    {{- with .Store.Get "github_repo_link" -}}
+    {{- with .Store.Get "packers_ghrepost" -}}
         <a href="{{ . }}" target="_blank" class="icon-btn" aria-label="GitHub">{{ partial "icon" "github" }}</a>
     {{- end -}}
 
-    {{- with .Store.Get "gitlab_repo_link" -}}
+    {{- with .Store.Get "packers_glrepost" -}}
         <a href="https://gitlab.com" class="icon-btn" aria-label="GitLab">{{ partial "icon" "gitlab" }}</a>
     {{- end -}}
 </div>
